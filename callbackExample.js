@@ -1,18 +1,21 @@
 console.log('Start');
 
 //retrieve user information
-getUser(1, (user) => {
-    console.log('user', user);
-});
+getUser(1, displayUser);
 
 // retrieve fictional user address
-getAddress("luke", (address) => {
-    console.log("Luke", address);
-})
+getAddress("luke", displayAddress)
 
 // end of files
 console.log("End");
 
+function displayUser(user){
+    console.log(user);
+} 
+
+function displayAddress(address){
+    console.log(address)
+}
 function getUser(id, callback){
     setTimeout(() => {
         console.log("called");
