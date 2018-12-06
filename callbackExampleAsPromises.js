@@ -2,16 +2,18 @@ console.log('Start');
 
 //retrieve user information
 getUser(1)
-.then(result => displayUser(result))
+.then(result => getAddress(result))
+.then(result => getFriends(result))
+.then(result => displayFriends(result))
 .catch(err => console.log(err.message))
 
 // retrieve fictional user address
-getAddress("luke")
-.then(result => displayAddress(result))
-.catch(err => console.log(err.message))
+// getAddress("luke")
+// .then(result => displayAddress(result))
+// .catch(err => console.log(err.message))
 
-getFriends(3)
-.then(result => displayFriends(result))
+// getFriends(3)
+// .then(result => displayFriends(result))
 
 // end of files
 console.log("End");
@@ -30,7 +32,7 @@ function displayFriends(friends){
 
 function getUser(id){
     return new Promise((resolve, reject) => {
-        console.log("called");
+        console.log("called getUser");
         setTimeout(() => {
             resolve({
                 id: id,
@@ -65,6 +67,7 @@ function getAddress(username){
 
 function getFriends(id){
     return new Promise((resolve, reject)=>{
+        console.log("finding friends");
         setTimeout(()=>{
             resolve({
                 friend1: 'Gandalf',
