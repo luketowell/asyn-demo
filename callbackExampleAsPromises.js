@@ -10,6 +10,9 @@ getAddress("luke")
 .then(result => displayAddress(result))
 .catch(err => console.log(err.message))
 
+getFriends(3)
+.then(result => displayFriends(result))
+
 // end of files
 console.log("End");
 
@@ -20,6 +23,11 @@ function displayUser(user){
 function displayAddress(address){
     console.log(address)
 }
+
+function displayFriends(friends){
+    console.log(friends);
+}
+
 function getUser(id){
     return new Promise((resolve, reject) => {
         console.log("called");
@@ -52,5 +60,18 @@ function getAddress(username){
             reject(new Error('Cannot get Address'));
         }, 3000)
         
+    })
+}
+
+function getFriends(id){
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            resolve({
+                friend1: 'Gandalf',
+                friend2: 'Gimli',
+                friend3: 'Bard',
+                friend4: 'Elrond'
+            })
+        }, 3200)
     })
 }
