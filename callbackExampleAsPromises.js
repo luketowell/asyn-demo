@@ -78,3 +78,15 @@ function getFriends(id){
         }, 3200)
     })
 }
+
+// The two following promises are examples of Settled promises they are essentially promises that have immediately been resolved by the developer.
+//they are good for typically mocking out responses in unit tests.
+const age = Promise.resolve({age:111});
+age.then((result) => {
+    console.log(result)
+})
+
+const errorObject = Promise.reject(new Error('Failed to retrieve users'));
+errorObject.catch((err)=>{
+    console.log(err.message);
+})
